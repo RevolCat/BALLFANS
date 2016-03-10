@@ -1,0 +1,31 @@
+.post{
+    padding-top: 3px;
+}
+
+.topicTitle{
+    font-size: large;
+    font-weight: bold;
+}
+.postTime{
+    padding-left:34px ;
+    font-size: small;
+
+}
+.postAuthor{
+    width: 77px;
+
+}
+.postText{
+    padding:20px 30px 39px 34px;
+    line-height: 47px;
+}
+.postTable{
+    border: solid 1px #aeacaf;
+}
+
+.postTable td{
+    border: solid 1px #aeacaf;
+}
+.postButton{
+    float: right;
+}

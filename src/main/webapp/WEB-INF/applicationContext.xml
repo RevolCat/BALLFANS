@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+       <!--数据源-->
+       <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+             destroy-method="close">
+              <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+              <property name="url" value="jdbc:mysql://localhost:3306/bascketball?useUnicode=true&amp;characterEncoding=UTF-8" />
+              <property name="username" value="root" />
+              <property name="password" value="123456" />
+       </bean>
+
+       <!--hibernate配置-->
+       <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+              <property name="dataSource" ref="dataSource"/>
+              <property name="annotatedClasses">
+                     <list>
+                            <value>com.ballfuns.entity.Board</value>
+                         <value>com.ballfuns.entity.Topic</value>
+                         <value>com.ballfuns.entity.Post</value>
+                         <value>com.ballfuns.entity.User</value>
+
+                         <value>com.ballfuns.entity.Login_log</value>
+                     </list>
+              </property>
+              <property name="hibernateProperties">
+                     <props>
+                            <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                            <prop key="hibernate.format_sql">true</prop>
+                            <prop key="hibernate.show_sql">true</prop>
+                            <prop key="hibernate.hbm2ddl.auto">update</prop>
+                            <prop key="hibernate.autoReconnect">true</prop>
+                     </props>
+              </property>
+       </bean>
+       <!--事务管理-->
+       <tx:annotation-driven transaction-manager="txManager"/>
+       <bean id="txManager"
+             class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+              <property name="sessionFactory" ref="sessionFactory"/>
+       </bean>
+
+       <bean id="transactionBase"
+             class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+             lazy-init="true" abstract="true">
+              <property name="transactionManager" ref="txManager"/>
+              <property name="transactionAttributes">
+                     <props>
+                            <prop key="add*">PROPAGATION_REQUIRED</prop>
+                            <prop key="save*">PROPAGATION_REQUIRED</prop>
+                            <prop key="delete*">PROPAGATION_REQUIRED</prop>
+                            <prop key="find*">PROPAGATION_REQUIRED</prop>
+                            <prop key="get*">PROPAGATION_REQUIRED</prop>
+                            <prop key="update*">PROPAGATION_REQUIRED</prop>
+                            <prop key="load*">PROPAGATION_REQUIRED</prop>
+                            <prop key="excute*">PROPAGATION_REQUIRED</prop>
+                            <prop key="merge*">PROPAGATION_REQUIRED</prop>
+                     </props>
+              </property>
+
+       </bean>
+
+<!--配置bean-->
+    <!--board-->
+       <bean id="boardDao" class="com.ballfuns.dao.BoardDaoImpl">
+              <property name="sessionFactory" ref="sessionFactory"/>
+       </bean>
+       <bean id="boardService" class="com.ballfuns.service.BoardServiceImpl">
+              <property name="boardDao" ref="boardDao"/>
+       </bean>
+
+    <!--board_manager-->
+    <bean id="board_managerDao" class="com.ballfuns.dao.Board_managerImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="board_managerService" class="com.ballfuns.service.Board_managerServiceImpl">
+        <property name="board_managerDao" ref="board_managerDao"/>
+    </bean>
+
+    <!--topics-->
+    <bean id="topicDao" class="com.ballfuns.dao.TopicDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="topicService" class="com.ballfuns.service.TopicServiceImpl">
+        <property name="topicDao" ref="topicDao"/>
+    </bean>
+
+    <!--post-->
+    <bean id="postDao" class="com.ballfuns.dao.PostDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="postService" class="com.ballfuns.service.PostServiceImpl">
+        <property name="postDao" ref="postDao"/>
+    </bean>
+
+    <!--User-->
+    <bean id="userDao" class="com.ballfuns.dao.UserDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="userService" class="com.ballfuns.service.UserServiceImpl">
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+
+
+
+
+
+</beans>

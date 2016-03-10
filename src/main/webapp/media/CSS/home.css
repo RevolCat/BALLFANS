@@ -1,0 +1,24 @@
+.HOMEfield{
+    width: 24%;
+    float: left;
+    height: 100px;
+    margin: 5px 2px 2px;
+    font-size: 18px;
+    font-family: "Microsoft YaHei";
+    padding:10px 0 0 10px;
+}
+.HOMEfield span{
+    font-size: 10px;
+}
+.fieldHover{
+    background-color: lightgoldenrodyellow;
+
+}
+.board_context{
+    border: solid 1px;
+    background-color:lightblue;
+}
+
+.addboard{
+    float: left;
+}

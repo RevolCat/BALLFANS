@@ -1,0 +1,23 @@
+.topics{
+    line-height: 47px;
+}
+.trhighlight{
+    color: palevioletred;
+}
+.topicTR{
+
+}
+#board_table{
+    font-size: inherit;
+}
+#board_table td{
+    height: 37px;
+}
+
+.linehigh{
+    background-color: aquamarine;
+   // color: white;
+}
+.huifuliulan{
+    font-size: small;
+}

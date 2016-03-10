@@ -1,0 +1,36 @@
+.col-line{
+    width: 100%;
+    height: 1px;
+    background-color: #9d9d9d;
+}
+.registerform{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 600px;
+    margin-top: 10px;
+
+}
+.biaodan{
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+.button-group{
+padding-left: 20%;
+    padding-right: auto;
+}
+
+#user_account{
+    float: left;
+}
+#spaName{
+    float: left;
+}
+#user_name{
+    float:left;
+}
+#spaName2{
+    float: left;
+}
+

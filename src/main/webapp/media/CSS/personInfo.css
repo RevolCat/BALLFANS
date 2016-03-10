@@ -1,0 +1,73 @@
+.leftNav{
+    width: 150px;
+    height: 500px;
+    background-color: chocolate;
+    float: left;
+
+}
+
+.rightNavInfo{
+    width: 800px;
+    height: 470px;
+
+    float: left;
+    border: 2px;
+    padding: 3px;
+    margin: 5px 2px 0  5px;
+
+}
+.rightNavSecurity{
+    width: 800px;
+    height: 470px;
+    float: left;
+    border: 2px;
+    padding: 3px;
+    margin: 5px 2px 0  5px;
+    display: none;
+}
+.baseinformation{
+    width: 500px;
+    height: 200px;
+
+}
+.showhead{
+    width:100px;
+    height: 100px;
+    float: left;
+
+}
+.navmenu{
+    width: 100%;
+
+    padding-top: 4px;
+    margin-top: 6px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center ;
+}
+.showinformation{
+    float: left;
+
+    width: 380px;
+    height: 190px;
+    padding-left: 5px;
+    padding-top: 6px;
+}
+.personalTopic{
+width: 800px;
+    height: 290px;
+
+}
+.list{
+    cursor: pointer;
+    position: relative;
+}
+.list li{
+    display:inline;
+}
+.box .content{
+    display: none;
+}
+.current{
+
+}

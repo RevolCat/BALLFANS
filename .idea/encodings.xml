@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/ballfuns/controller/UserController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/page/topic/index.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/MtopicList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/managerTopicCheck.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/postList.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/pushTopic.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/registe.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/media/JS/roothomecheck.js" charset="UTF-8" />
+  </component>
+</project>
