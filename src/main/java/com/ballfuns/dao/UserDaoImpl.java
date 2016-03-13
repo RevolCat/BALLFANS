@@ -110,6 +110,5 @@ public User getByAccount(String user_account){
             user.setUser_type(0);
             session.save(user);
         }
-
     }
 }

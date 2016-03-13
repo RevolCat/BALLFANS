@@ -61,7 +61,7 @@
           <th>积分</th>
           <th>性别</th>
           <th>注册时间</th>
-          <th> 编辑</th>
+
           <th>删除</th>
         </tr>
       </th>
@@ -88,7 +88,7 @@
           <td>${userList.credit}</td>
           <td>${userList.sex}</td>
           <td>${userList.register_date}</td>
-          <td><a href="#">编辑</a> </td>
+
           <td><a href="/user/deleteUser?user_id=${userList.user_id}">删除</a></td>
         </tr>
       </c:forEach>
