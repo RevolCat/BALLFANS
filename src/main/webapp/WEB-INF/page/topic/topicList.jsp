@@ -42,7 +42,21 @@
 </div>
 <div id="main">
   <div class="board_title">
-    NBA
+    <c:if test="${board_id==1}">
+      <img src="../img/NBA.png" class="topicHeadPic">
+    </c:if>
+    <c:if test="${board_id==2}">
+      <img src="../img/muscle.jpg" class="topicHeadPic">
+    </c:if>
+    <c:if test="${board_id==3}">
+      <img src="../img/afterGame.jpg" class="topicHeadPic">
+    </c:if>
+<c:if test="${board_id==4}">
+  <img src="../img/freestyle.jpg" class="topicHeadPic">
+</c:if>
+    <c:if test="${board_id==5}">
+      <img src="../img/AJSHOE.jpg" class="topicHeadPic">
+    </c:if>
   </div>
   <div class="selfnav">
     <button type="button" class="btn btn-primary" onclick="toAddnewpost()">发&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;帖</button>

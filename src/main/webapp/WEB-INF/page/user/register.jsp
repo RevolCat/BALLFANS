@@ -48,24 +48,24 @@
   <div class="col-line"></div><br/>
   <div class="biaodan">
     <form role="form" id="regform" name="registerform" class="form-horizontal">
-      <div class="form-group">
-        <label class="col-md-4 control-label">账号</label>
+      <div class="form-group  ">
+        <label class="control-label col-md-4 col-lg-4 col-sm-4">账号</label>
         <input type="text"  id="user_account" name="user_account"
                placeholder="输入你的账号哦，英文或者数字" required onblur="checkAccount()"/>
         <span id="spaName" ></span>
       </div>
-      <div class="form-group">
-        <label class="col-md-4 control-label">用户名</label>
+      <div class="form-group ">
+        <label class=" control-label col-md-4 col-lg-4 col-sm-4">用户名</label>
         <input type="text" id="user_name" name="user_name"
                placeholder="输入你的大名哦" required onblur="checkName()"/>
         <span id="spaName2" ></span>
       </div>
-      <div class="form-group">
-        <label class="col-md-4 control-label">密码</label>
+      <div class="form-group ">
+        <label class=" control-label col-md-4 col-lg-4 col-sm-4">密码</label>
         <input type="password" id="password" name="password" required/>
       </div>
-      <div class="form-group">
-        <label class="col-md-4 control-label" >再输一次密码啊亲</label>
+      <div class="form-group ">
+        <label class=" control-label col-md-4 col-lg-4 col-sm-4" >再输一次密码啊亲</label>
         <input type="password" id="password2" name="password2" required/>
       </div>
 

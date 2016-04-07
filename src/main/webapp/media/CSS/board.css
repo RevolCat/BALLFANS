@@ -4,9 +4,10 @@
 #main .board_title{
     border: solid 1px #aeacaf;
     width: 100%;
-    height: 200px;
+    height: 400px;
     margin: 5px 0 5px 0;
 }
+
 #main .board_main{
     margin-top:7px;
 
