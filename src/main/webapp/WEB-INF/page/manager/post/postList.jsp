@@ -108,43 +108,53 @@
 </c:if>
   <div class="fenye">
     <div class="badoo">
-      <ul class="pagination">
-        <li>
-          <span class="disabled">第${pageModel.page}页/共${pageModel.pageCount}页</span>
-        </li>
-        <li>
-          <a href="${pageuri}?page=1">首页</a>
-        </li>
-        <li>
-          <c:if test="${pageModel.page>1}">
-            <a href="${pageuri}?page=${pageModel.pevpage}">上一页</a>
-          </c:if>
-        </li>
-        <li>
-          <c:forEach var="pre" items="${pageModel.prevPages }">
-            <a href="${pageuri}?page=${pre }">${pre}</a>
-          </c:forEach>
-        </li>
-        <li class="active">
-          <span class="current">${pageModel.page }</span>
-        </li>
-        <li>
-          <c:forEach var="next" items="${pageModel.nextPages }">
-            <a href="${pageuri}?page=${next }">${next}</a>
-          </c:forEach>
-        </li>
+      <!--无评论显示-->
+      <c:if test="${pageModel.pageCount==0}">
+        <div class="comment">
+          <h4><span> 目前无评论</span></h4>
+        </div>
+      </c:if>
+      <!--有评论显示-->
+      <c:if test="${pageModel.pageCount!=0}">
+        <ul class="pagination">
+          <li>
+            <span class="disabled">第${pageModel.page}页/共${pageModel.pageCount}页</span>
+          </li>
+          <li>
+            <a href="${pageuri}?page=1">首页</a>
+          </li>
+          <li>
+            <c:if test="${pageModel.page>1}">
+              <a href="${pageuri}?page=${pageModel.pevpage}">上一页</a>
+            </c:if>
+          </li>
+          <li>
+            <c:forEach var="pre" items="${pageModel.prevPages }">
+              <a href="${pageuri}?page=${pre }">${pre}</a>
+            </c:forEach>
+          </li>
+          <li class="active">
+            <span class="current">${pageModel.page }</span>
+          </li>
+          <li>
+            <c:forEach var="next" items="${pageModel.nextPages }">
+              <a href="${pageuri}?page=${next }">${next}</a>
+            </c:forEach>
+          </li>
 
-        <li>
-          <c:if test="${pageModel.page<pageModel.lastpage}">
-            <a href="${pageuri}?page=${pageModel.nextpage}">下一页</a>
-          </c:if>
-        </li>
-        <li>
-          <a href="${pageuri}?page=${pageModel.lastpage}">尾页</a>
-        </li>
+          <li>
+            <c:if test="${pageModel.page<pageModel.lastpage}">
+              <a href="${pageuri}?page=${pageModel.nextpage}">下一页</a>
+            </c:if>
+          </li>
+          <li>
+            <a href="${pageuri}?page=${pageModel.lastpage}">尾页</a>
+          </li>
 
 
-      </ul>
+        </ul>
+      </c:if>
+
 
     </div>
   </div>
