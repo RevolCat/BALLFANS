@@ -29,3 +29,9 @@
 .postButton{
     float: right;
 }
+
+.comment{
+    width: 100%;
+
+    text-align: center;
+}
