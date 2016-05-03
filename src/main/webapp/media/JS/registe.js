@@ -52,6 +52,9 @@ $(document).ready(function(){
                 alert("用户名不能有空格哦");
             }
             else{
+                var md5password=$("#password").val();
+            document.getElementById('password').value= $.md5(md5password);
+
                     form.action = "/user/register";
                     form.method = "post";
                     form.submit();
