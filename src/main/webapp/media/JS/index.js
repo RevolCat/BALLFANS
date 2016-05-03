@@ -17,7 +17,8 @@ function addFavorite(){
 //login
 function login(){
     var account=$("#user_account").val();
-    var pwd=$("#password").val();
+    var pwd= $.md5($("#password").val());
+    //console.log(pwd);
     $.ajax({
         type:"post",
         url:"/user/login",

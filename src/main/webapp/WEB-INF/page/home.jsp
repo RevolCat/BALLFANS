@@ -13,10 +13,7 @@
 <html>
 <head>
   <title>JR---welcome to basketballfuns home!!</title>
-  <script src="../media/JS/jquery.min.js"></script>
-  <script src="../media/JS/bootstrap.min.js"></script>
-  <script src="../media/JS/home.js"></script>
-  <script src="../media/JS/index.js"></script>
+
   <link rel="stylesheet" href="../media/CSS/bootstrap.min.css"/>
   <link rel="stylesheet" href="../media/CSS/index.css"/>
   <link rel="stylesheet" href="../media/CSS/home.css"/>
@@ -69,3 +66,8 @@
 
 </body>
 </html>
+<script src="../media/JS/jquery.min.js"></script>
+<script src="../media/JS/bootstrap.min.js"></script>
+<script src="../media/JS/home.js"></script>
+<script src="../media/JS/index.js"></script>
+<script type="text/javascript" src="../media/JS/jquery.md5.js"></script>

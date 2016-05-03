@@ -32,7 +32,8 @@ $("#xiugaimima").validate({
         }
     },
     submitHandler:function(){
-        var password=$('#cofirmpassword').val();
+        //用MD5加密后匹配
+        var password= $.md5($('#cofirmpassword').val());
         $.ajax({
             url:"/user/updatepwd",
             type:"post",
@@ -65,7 +66,8 @@ function changeNav2(){
 
 //检测旧密码是否正确
 function checkPwd(){
-    var  currentpassword=$("#currentpassword").val();
+    var  currentpassword= $.md5($("#currentpassword").val());
+    //console.log(currentpassword);
     $.ajax({
         url:"/user/pwd",
         type:"POST",
@@ -91,7 +93,7 @@ function checkPwd(){
 
 //更新密码ajax
 function updatePwd(){
-  var password=$('#cofirmpassword').val();
+  var password= $.md5($('#cofirmpassword').val());
     $.ajax({
         url:"/user/updatepwd",
         type:"post",
