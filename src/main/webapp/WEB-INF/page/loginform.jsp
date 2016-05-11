@@ -48,7 +48,8 @@
     Integer usertype=user.getUser_type();
     out.print("当前用户:<a href=\"/user/personInfo\">"+loginname);
     out.print("</a>");
-    out.print("&nbsp;&nbsp;积分:"+usercredit);
+    out.print("&nbsp;&nbsp;积分:"+"<span id=\"usercredit\">");
+      out.print("</span>");
       //out.print("&nbsp;&nbsp;用户类型:");
       out.print("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"/user/exit\">exit");
     out.print("    </a><br/>");

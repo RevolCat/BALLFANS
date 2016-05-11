@@ -45,6 +45,22 @@ public User getByAccount(String user_account){
         sessionFactory.getCurrentSession().save(user);
     }
 
+    //发帖加积分
+
+    public void addPushTopicCredit(User user) {
+        int currentcredit=user.getCredit()+2;
+        user.setCredit(currentcredit);
+        sessionFactory.getCurrentSession().save(user);
+    }
+    //回复加积分
+    public void addPushPostCredit(User user) {
+        int currentcredit=user.getCredit()+1;
+        user.setCredit(currentcredit);
+        sessionFactory.getCurrentSession().save(user);
+    }
+
+
+
     public void updatePwd(User user,String password) {
         user.setPassword(password);
         sessionFactory.getCurrentSession().save(user);

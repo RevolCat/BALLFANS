@@ -135,7 +135,7 @@ public class UserController {
           }
 
             //登录积分+1
-            userService.addLoginCredit(dbuser);
+          //  userService.addLoginCredit(dbuser);
             System.out.println("SUCCESSSSSSSSSSSSSSSSSSSSS             " + dbuser.getCredit());
             request.getSession(true).setAttribute("sessionUser",dbuser);
            request.getSession(true).setAttribute("sessionuserId", dbuser.getUser_id());
@@ -156,6 +156,19 @@ public class UserController {
         }
 
     }
+
+//刷新积分
+    @RequestMapping(value = "/getCredit",method = RequestMethod.POST)
+    public void getCredit(HttpServletRequest request,HttpServletResponse response,User user) throws Exception{
+       String currentUserAccount=request.getSession().getAttribute("sessionuserAccount").toString();
+        User currentUser=userService.getByAccount(currentUserAccount);
+        Integer userCredit=currentUser.getCredit();
+        System.out.println("用户积分为"+userCredit);
+        PrintWriter pw=null;
+        pw=response.getWriter();
+        pw.print(userCredit);
+    }
+
 
 
     //退出

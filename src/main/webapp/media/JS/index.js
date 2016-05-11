@@ -49,3 +49,19 @@ function login(){
         }
     });
 }
+
+
+$(document).ready(function(){
+    $.ajax({
+        url:'/user/getCredit',
+        type:'POST',
+        dataType:'json',
+        success: function (data) {
+            console.log(data);
+            $("#usercredit").html(data);
+        },
+        error:function(err){
+            console.log(err);
+        }
+    });
+});

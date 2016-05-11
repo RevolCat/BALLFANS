@@ -3,10 +3,8 @@ package com.ballfuns.controller;
 import com.ballfuns.entity.Board;
 import com.ballfuns.entity.Page;
 import com.ballfuns.entity.Topic;
-import com.ballfuns.service.BoardService;
-import com.ballfuns.service.Board_managerService;
-import com.ballfuns.service.PostService;
-import com.ballfuns.service.TopicService;
+import com.ballfuns.entity.User;
+import com.ballfuns.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -32,6 +30,12 @@ public class TopicController {
     @Qualifier(value = "topicService")
     public void setTopicService(TopicService topicService) {
         this.topicService = topicService;
+    }
+private UserService userService;
+@Autowired
+@Qualifier(value = "userService")
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     private BoardService boardService;
@@ -122,15 +126,20 @@ public class TopicController {
 
     //在板块发表新帖
     @RequestMapping(value = "/pushTopic",method = RequestMethod.POST)
-    public String pushTopic(Topic topic,HttpServletRequest request, RedirectAttributes redirectAttributes) throws  Exception{
+    public String pushTopic(Topic topic,User user,HttpServletRequest request, RedirectAttributes redirectAttributes) throws  Exception{
         Integer boardId=(Integer) request.getSession().getAttribute("boardId");
         Integer  currentUserId=(Integer)request.getSession().getAttribute("sessionuserId");
         Board currentBoard=boardService.getBoardByID(boardId);
         String currentUserName=request.getSession().getAttribute("sessionusername").toString();
+        User currentUser=userService.getByName(currentUserName);
+
         //增加一个帖子
         topicService.addTopic(topic, boardId, currentUserId, currentUserName);
         //版块的topicNUm+1
         boardService.addTopicNum(currentBoard);
+        // 用户积分增加
+        userService.addPushTopicCredit(currentUser);
+
         //REST重定向
         redirectAttributes.addAttribute("board_id",topic.getBoard_id()).addFlashAttribute("message", "Account created!");
         if((Integer) request.getSession().getAttribute("sessionusertype")!=0){

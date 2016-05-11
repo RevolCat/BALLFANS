@@ -3,8 +3,10 @@ package com.ballfuns.controller;
 import com.ballfuns.entity.Page;
 import com.ballfuns.entity.Post;
 import com.ballfuns.entity.Topic;
+import com.ballfuns.entity.User;
 import com.ballfuns.service.PostService;
 import com.ballfuns.service.TopicService;
+import com.ballfuns.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,6 @@ import java.util.List;
 @RequestMapping("/post")
 public class PostController {
     private PostService postService;
-
     @Autowired
     @Qualifier(value = "postService")
     public void setPostService(PostService postService) {
@@ -34,11 +35,17 @@ public class PostController {
     }
 
     private TopicService topicService;
-
     @Autowired
     @Qualifier(value = "topicService")
     public void setTopicService(TopicService topicService) {
         this.topicService = topicService;
+    }
+
+    private UserService userService;
+    @Autowired
+    @Qualifier(value = "userService")
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     /**
@@ -101,12 +108,15 @@ public class PostController {
 
     //发表回复
     @RequestMapping("/pushPost")
-    public String pushPost(Topic topic,Post post,HttpServletRequest request,RedirectAttributes redirectAttributes){
+    public String pushPost(Topic topic,Post post,User user,HttpServletRequest request,RedirectAttributes redirectAttributes){
         Integer topicId=(Integer) request.getSession().getAttribute("topicId");
         Integer  currentUserId=(Integer)request.getSession().getAttribute("sessionuserId");
         String currentUserName=request.getSession().getAttribute("sessionusername").toString();
+        User currentUser=userService.getByName(currentUserName);
 
         postService.addPost(post, topicId, currentUserId, currentUserName);
+        // 用户积分增加
+        userService.addPushPostCredit(currentUser);
 
         Topic currentTopic=topicService.getTopicById(topicId);
         //topicService.addTopicReply(currentTopic);

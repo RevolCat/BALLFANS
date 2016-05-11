@@ -11,6 +11,14 @@
     <title></title>
 </head>
 <body>
-<a href="/">REGISTER SUCCESS,CLICK ME RETURN TO HOMEPAGE</a>
+<a href="/">注册成功，5秒后返回首页。。。。。</a>
 </body>
 </html>
+<script src="../media/JS/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    setTimeout(function(){
+      window.location.href="/";
+    },5000);
+  });
+</script>

@@ -23,4 +23,6 @@ public interface UserService {
 
     public void setManager(int user_id);
     public void offManager(int user_id);
+    public void addPushTopicCredit(User user);
+    public  void addPushPostCredit(User user);
 }

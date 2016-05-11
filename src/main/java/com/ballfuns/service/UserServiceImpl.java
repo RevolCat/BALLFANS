@@ -71,4 +71,12 @@ public class UserServiceImpl implements UserService {
     public void offManager(int user_id) {
 userDao.offManager(user_id);
     }
+    @Transactional
+    public void addPushTopicCredit(User user) {
+        userDao.addPushTopicCredit(user);
+    }
+    @Transactional
+    public void addPushPostCredit(User user) {
+userDao.addPushPostCredit(user);
+    }
 }
