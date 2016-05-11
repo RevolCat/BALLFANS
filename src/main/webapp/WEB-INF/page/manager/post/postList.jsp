@@ -18,7 +18,7 @@
   <script src="../../media/JS/index.js"></script>
   <script src="../../media/JS/postList.js"></script>
   <script src="../../media/JS/managerTopicCheck.js"></script>
-
+  <script type="text/javascript" src="../media/JS/jquery.md5.js"></script>
   <link rel="stylesheet" href="../../media/CSS/postList.css"/>
   <link rel="stylesheet" href="../../media/CSS/bootstrap.min.css"/>
   <link rel="stylesheet" href="../../media/CSS/index.css"/>
@@ -47,8 +47,10 @@
 
 <div id="main">
   <div class="selfnav">
-
+<!--
     <button type="button" class="btn btn-info">回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复</button>
+
+-->
     <a href="/topic/m/re">返回</a>
 
   </div>

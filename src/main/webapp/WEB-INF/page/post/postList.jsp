@@ -17,10 +17,11 @@
   <script src="../media/JS/bootstrap.min.js"></script>
   <script src="../media/JS/index.js"></script>
   <script src="../media/JS/postList.js"></script>
-
+  <script type="text/javascript" src="../media/JS/jquery.md5.js"></script>
   <link rel="stylesheet" href="../media/CSS/bootstrap.min.css"/>
   <link rel="stylesheet" href="../media/CSS/index.css"/>
   <link rel="stylesheet" href="../media/CSS/postList.css"/>
+
 </head>
 <body>
 <!--顶层工具条-->
@@ -46,7 +47,10 @@
 
 <div id="main">
   <div class="selfnav">
-    <button type="button" class="btn btn-info">回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复</button>
+    <!--
+        <button type="button" class="btn btn-info">回&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;复</button>
+
+    -->
     <a href="/topic/re">返回</a>
   </div>
   <hr/>

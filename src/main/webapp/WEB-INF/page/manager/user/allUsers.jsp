@@ -17,7 +17,7 @@
   <script src="../../media/JS/index.js"></script>
   <script src="../../media/JS/allUsers.js"></script>
   <script src="../../media/JS/roothomecheck.js"></script>
-
+    <script type="text/javascript" src="../media/JS/jquery.md5.js"></script>
 
   <link rel="stylesheet" href="../../media/CSS/bootstrap.min.css"/>
   <link rel="stylesheet" href="../../media/CSS/bootstrap-switch.min.css"/>
@@ -76,10 +76,10 @@
           </td>
           <td >
           <c:if test="${userList.locked==1}">
-            <span style="color: red">已锁定</span>
+            <span class="unNormalUser">已锁定</span>
           </c:if>
             <c:if test="${userList.locked==0}">
-              <span>正常使用</span>
+              <span class="normalUser">正常使用</span>
             </c:if>
             <a href="/user/lockUser?user_id=${userList.user_id}" onclick="lockUser()" oncClientClick="return lockUser()">锁定</a>
              <a href="/user/unlockUser?user_id=${userList.user_id}" onclick="UnlockUser()">解锁</a>

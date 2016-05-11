@@ -77,6 +77,8 @@ public class UserController {
         pw.close();
     }
 
+
+
     //检测用户名
     @RequestMapping(value = "/checkName",method = RequestMethod.POST)
     public void checkName(HttpServletRequest request,HttpServletResponse response)
