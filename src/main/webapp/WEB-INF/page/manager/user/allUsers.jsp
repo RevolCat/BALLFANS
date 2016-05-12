@@ -52,10 +52,10 @@
           <th>用户种类</th>
           <th>是否锁定</th>
           <th>积分</th>
-          <th>性别</th>
+          <th></th>
           <th>注册时间</th>
 
-          <th>删除</th>
+
         </tr>
       </th>
       <c:forEach items="${userList}" var="userList">
@@ -79,7 +79,7 @@
 
           </td>
           <td>${userList.credit}</td>
-          <td>${userList.sex}</td>
+          <td> </td>
           <td>${userList.register_date}</td>
 <!--
           <td><a href="/user/deleteUser?user_id=${userList.user_id}">删除</a></td>
