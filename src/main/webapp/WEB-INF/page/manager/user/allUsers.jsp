@@ -11,13 +11,6 @@
 <html>
 <head>
   <title>JR---welcome to basketballfuns home!!</title>
-  <script src="../../media/JS/jquery.min.js"></script>
-  <script src="../../media/JS/bootstrap.min.js"></script>
-  <script src="../../media/JS/bootstrap-switch.min.js"></script>
-  <script src="../../media/JS/index.js"></script>
-  <script src="../../media/JS/allUsers.js"></script>
-  <script src="../../media/JS/roothomecheck.js"></script>
-    <script type="text/javascript" src="../media/JS/jquery.md5.js"></script>
 
   <link rel="stylesheet" href="../../media/CSS/bootstrap.min.css"/>
   <link rel="stylesheet" href="../../media/CSS/bootstrap-switch.min.css"/>
@@ -142,3 +135,10 @@
 
 </body>
 </html>
+<script src="../../media/JS/jquery.min.js"></script>
+<script src="../../media/JS/bootstrap.min.js"></script>
+<script src="../../media/JS/bootstrap-switch.min.js"></script>
+<script src="../../media/JS/index.js"></script>
+<script src="../../media/JS/allUsers.js"></script>
+<script src="../../media/JS/roothomecheck.js"></script>
+<script type="text/javascript" src="../media/JS/jquery.md5.js"></script>

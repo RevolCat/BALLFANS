@@ -58,6 +58,7 @@ $(document).ready(function(){
         dataType:'json',
         success: function (data) {
             console.log(data);
+
             $("#usercredit").html(data);
         },
         error:function(err){
