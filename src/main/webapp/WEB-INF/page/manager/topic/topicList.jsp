@@ -81,33 +81,31 @@
     <br/>
 
     <c:if test="${!empty topicList}">
-      <table>
+      <table >
         <tr>
-          <th width="608px">主题</th>
-          <th width="72px">作者</th>
+          <th class="col-lg-8">主题</th>
+          <th class="col-lg-1">作者</th>
           <td width="30px" class="huifuliulan">回复</td>
           <td width="30px" class="huifuliulan">浏览</td>
-          <th width="200px">最后发表</th>
+          <th width="150px">最后发表</th>
         </tr>
       </table>
-    <table id="board_table"  width="100%">
+    <table id="board_table" class="table" width="100%">
         <c:forEach items="${topicList}" var="alltopics">
           <tr>
-            <td><c:if test="${alltopics.digest==1}"><span class="digest">精华</span></c:if>
+            <td class="col-lg-7"><c:if test="${alltopics.digest==1}"><span class="digest">精华</span></c:if>
               <a href="/post/m/${alltopics.topic_id}" target="_blank">    ${alltopics.topic_title}    </a></td>
-            <td>${alltopics.user_name}</td>
-            <td>${alltopics.topic_replies}</td>
-            <td>/${alltopics.topic_views}</td>
-            <td>${alltopics.last_post}</td>
+            <td class="col-lg-1">${alltopics.user_name}</td>
+            <td >${alltopics.topic_replies}</td>
+            <td width="30px">/${alltopics.topic_views}</td>
+            <td  width="150px">${alltopics.last_post}</td>
             <td>
-              <!--
 
-                            <a href="javascript:void(0)" onclick="deleteTopic()">删除</a>
-                             <a href="/topic/m/deleteTopic?topic_id=${alltopics.topic_id}">删除</a>
-            -->
               <button onclick="deleteTopic(${alltopics.topic_id})" class="btn btn-danger">删除</button>
+              </td>
+            <td>
+               <button onclick="stickyTopic(${alltopics.topic_id})" class="btn btn-primary">置顶</button>
             </td>
-            <td>    <button onclick="stickyTopic(${alltopics.topic_id})" class="btn btn-primary">置顶</button> </td>
           </tr>
         </c:forEach>
     </table>

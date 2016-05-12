@@ -80,9 +80,9 @@
     <br/><!---分割线-->
     <c:if test="${!empty topicList}">
       <table>
-        <tr>
-          <th width="685px">主题</th>
-          <th width="92px">作者</th>
+        <tr class="row">
+          <th class="col-lg-7">主题</th>
+          <th class="col-lg-2">作者</th>
           <td width="30px" class="huifuliulan">回复</td>
           <td width="30px" class="huifuliulan">浏览</td>
           <th width="200px">最后发表</th>
@@ -90,12 +90,12 @@
       </table>
 
 
-    <table id="board_table" class="topics" width="100%">
+    <table id="board_table" class="topics table" width="100%">
         <c:forEach items="${topicList}" var="alltopics">
-          <tr class="topicTR">
-            <td>  <c:if test="${alltopics.digest==1}"><span class="digest">【精华】</span></c:if>
+          <tr class="topicTR row">
+            <td class="col-lg-7">  <c:if test="${alltopics.digest==1}"><span class="digest">【精华】</span></c:if>
               <a href="/post/${alltopics.topic_id}" target="_blank">    ${alltopics.topic_title}    </a></td>
-            <td>${alltopics.user_name}</td>
+            <td class="col-lg-2">${alltopics.user_name}</td>
             <td>${alltopics.topic_replies}</td>
             <td>/${alltopics.topic_views}</td>
             <td>${alltopics.last_post}</td>
