@@ -81,8 +81,10 @@
           <td>${userList.credit}</td>
           <td>${userList.sex}</td>
           <td>${userList.register_date}</td>
-
+<!--
           <td><a href="/user/deleteUser?user_id=${userList.user_id}">删除</a></td>
+
+-->
         </tr>
       </c:forEach>
     </table>
