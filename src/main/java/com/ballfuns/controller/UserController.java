@@ -57,6 +57,8 @@ public class UserController {
         request.getSession(true).setAttribute("sessionusername", dbuser.getUser_name());
         request.getSession(true).setAttribute("sessioncredit", dbuser.getCredit());
         request.getSession(true).setAttribute("sessionusertype", dbuser.getUser_type());
+        request.getSession(true).setAttribute("sessionuserSex", dbuser.getSex());
+
         return "/user/success";
     }
 
@@ -143,6 +145,8 @@ public class UserController {
             request.getSession(true).setAttribute("sessionusername", dbuser.getUser_name());
             request.getSession(true).setAttribute("sessioncredit", dbuser.getCredit());
            request.getSession(true).setAttribute("sessionusertype", dbuser.getUser_type());
+            request.getSession(true).setAttribute("sessionuserSex", dbuser.getSex());
+
             System.out.println("当前     " + dbuser.getUser_name()+"当前account     "+dbuser.getUser_account());
             //获取客户端IP
             System.out.println(request.getRemoteAddr());

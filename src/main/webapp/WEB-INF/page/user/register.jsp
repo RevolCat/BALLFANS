@@ -63,6 +63,11 @@
         <label class=" control-label col-md-4 col-lg-4 col-sm-4" >再输一次密码啊亲</label>
         <input type="password" id="password2" name="password2" required/>
       </div>
+      <div class="form-group ">
+        <label class=" control-label col-md-4 col-lg-4 col-sm-4" >性别</label>
+        <input type="radio" name="sex" value="1" checked>男
+        <input type="radio" name="sex" value="0">女
+      </div>
 
 <div class="button-group">
   <button type="submit" class="btn btn-primary " id="subbutton"  >注册</button>

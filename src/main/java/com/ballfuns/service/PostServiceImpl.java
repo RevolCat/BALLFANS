@@ -37,8 +37,18 @@ public class PostServiceImpl implements PostService {
     public List<Post> getPostByTopicIdPage(int topic_id, Topic topic, int pageSize, int offset) {
         return postDao.getPostByTopicIdPage(topic_id,topic,pageSize,offset);
     }
-@Transactional
+    /**@Transactional
     public void deletePostByPostID(int post_id) {
+    postDao.deletePostByPostID(post_id);
+    }
+     * */
+
+@Transactional
+    public void deletePostByTopicID(int topic_id) {
+        postDao.deletePostByTopicID(topic_id);
+    }
+@Transactional
+    public void deletePostByPostID( int post_id) {
         postDao.deletePostByPostID(post_id);
     }
 }

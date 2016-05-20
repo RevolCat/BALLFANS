@@ -22,6 +22,10 @@ public class TopicServiceImpl implements TopicService {
     public List<Topic> getAllTopics() {
         return topicDao.getAllTopics();
     }
+@Transactional
+    public List<Topic> getAllTopicByBoardId(int board_id) {
+        return topicDao.getAllTopicByBoardId(board_id);
+    }
 
     @Transactional
     public List<Topic> getTopicByBoardId(int board_id) {

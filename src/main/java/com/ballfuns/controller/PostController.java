@@ -183,8 +183,9 @@ public class PostController {
 
     //É¾³ý»Ø¸´
     @RequestMapping("/m/deletePost")
-    public String MdeletePost(Topic topic,int post_id,HttpServletRequest request,RedirectAttributes redirectAttributes){
+    public String MdeletePost(Topic topic,Post post,int post_id,HttpServletRequest request,RedirectAttributes redirectAttributes){
         postService.deletePostByPostID(post_id);
+
         String currentTopicID=request.getSession().getAttribute("topicId").toString();
         int ctopicId=(Integer) request.getSession().getAttribute("topicId");
         redirectAttributes.addAttribute("topic_id",currentTopicID).addFlashAttribute("message", "Account created!");

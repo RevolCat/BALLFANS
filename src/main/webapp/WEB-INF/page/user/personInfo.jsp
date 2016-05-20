@@ -48,6 +48,18 @@
       <div class="showhead">      <img src=""/>     </div>
       <div class="showinformation">
         用户名：<%=request.getSession().getAttribute("sessionusername").toString() %><br/>
+        性别：<%
+        User user=(User) request.getSession().getAttribute("sessionUser");
+        String sex=user.getSex();
+        System.out.println(sex);
+        if(sex.equals("0")){
+        out.print("<span>女");
+        out.print("</span>");
+      }else{
+        out.print("<span>男");
+        out.print("</span>");
+      }
+      %><br/>
         积分：<%=request.getSession().getAttribute("sessioncredit").toString() %><br/>
       </div>
     </div>

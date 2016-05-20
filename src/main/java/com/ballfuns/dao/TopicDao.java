@@ -9,6 +9,8 @@ import java.util.List;
  */
 public interface TopicDao {
     public List<Topic> getAllTopics();
+    public List<Topic> getAllTopicByBoardId(int board_id);
+
     public List<Topic> getTopicByBoardId(int board_id);
     public Topic getTopicById(int topic_id);
     public Topic getTopicByUserName(String user_name);
@@ -22,4 +24,5 @@ public interface TopicDao {
     public void unstickyTopic(int topic_id);
     public void setDigest(int topic_id);
     public void offDigest(int topic_id);
+
 }

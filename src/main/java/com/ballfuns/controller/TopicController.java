@@ -135,8 +135,11 @@ private UserService userService;
 
         //增加一个帖子
         topicService.addTopic(topic, boardId, currentUserId, currentUserName);
-        //版块的topicNUm+1
-        boardService.addTopicNum(currentBoard);
+
+        //版块主题数
+        int topic_num=topicService.getAllTopicByBoardId(boardId).size();
+        boardService.addTopicNumByBoardID(currentBoard,topic_num);
+
         // 用户积分增加
         userService.addPushTopicCredit(currentUser);
 
@@ -210,7 +213,14 @@ private UserService userService;
     public String MdeleteTopic(Topic topic,int topic_id,RedirectAttributes redirectAttributes,HttpServletRequest request) throws  Exception{
         System.out.println("获取的topicid " + topic_id);
         topicService.deleteTopicById(topic_id);
-        //重定向
+        postService.deletePostByTopicID(topic_id);
+
+        Integer boardId=(Integer) request.getSession().getAttribute("boardId");
+        Board currentBoard=boardService.getBoardByID(boardId);
+        //版块主题数
+        int topic_num=topicService.getAllTopicByBoardId(boardId).size();
+        boardService.addTopicNumByBoardID(currentBoard,topic_num);
+
         String currentBoardId=request.getSession().getAttribute("boardId").toString();
         redirectAttributes.addAttribute("board_id",currentBoardId).addFlashAttribute("message", "Account created!");
         return "redirect:/topic/m/{board_id}";

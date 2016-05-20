@@ -14,4 +14,5 @@ public interface PostDao {
     public void addPost(Post post,int topic_id,int user_id,String user_name);
     public List<Post> getPostByTopicIdPage(int topic_id,Topic topic,int pageSize,int offset);
     public void deletePostByPostID(int post_id);
+    public void deletePostByTopicID(int topic_id);
 }

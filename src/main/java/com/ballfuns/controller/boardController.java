@@ -44,6 +44,8 @@ public class boardController {
     public String getAllBoard(HttpServletRequest request){
         List<Board> boardList=boardService.getAllBoard();
         request.setAttribute("AllBoard",boardList);
+
+
         return   "home";
 
     }

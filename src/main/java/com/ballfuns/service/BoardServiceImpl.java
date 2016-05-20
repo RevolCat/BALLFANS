@@ -38,4 +38,13 @@ public class BoardServiceImpl implements BoardService {
     public Board getBoardByID(int board_id) {
         return boardDao.getBoardByID(board_id);
     }
+@Transactional
+    public void minusTopicNum(Board board) {
+        boardDao.minusTopicNum(board);
+    }
+
+@Transactional
+    public void addTopicNumByBoardID(Board board, int topicNum) {
+        boardDao.addTopicNumByBoardID(board,topicNum);
+    }
 }

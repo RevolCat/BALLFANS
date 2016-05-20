@@ -11,6 +11,9 @@ public interface BoardDao {
     public List<Board> getAllBoard();
     public void setTopicNum(int topic_num);
     public void addTopicNum(Board board);
+    public void minusTopicNum(Board board);
     public void addBoard(Board board);
     public Board getBoardByID(int board_id);
+    public void addTopicNumByBoardID(Board board,int topicNum);
+
 }

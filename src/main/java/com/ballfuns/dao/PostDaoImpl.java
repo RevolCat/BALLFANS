@@ -56,13 +56,30 @@ public class PostDaoImpl implements PostDao {
 
         sessionFactory.getCurrentSession().save(post);
     }
-
+/**
+ * public void deletePostByPostID(int post_id) {
+ Session session=sessionFactory.getCurrentSession();
+ Post post=(Post) session.load(Post.class,new Integer(post_id));
+ if(post!=null){
+ session.delete(post);
+ System.out.println("DELETE SUCCESSFULLY***");
+ }
+ }
+ * */
     public void deletePostByPostID(int post_id) {
-        Session session=sessionFactory.getCurrentSession();
-        Post post=(Post) session.load(Post.class,new Integer(post_id));
-        if(post!=null){
-            session.delete(post);
-            System.out.println("DELETE SUCCESSFULLY***");
-        }
+       String hql="delete  Post p where p.post_id=?";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter(0,post_id);
+        query.executeUpdate();
+
+    }
+
+    public void deletePostByTopicID(int topic_id) {
+        //并且删除Post表中的有topic_id的记录
+        String hql="delete  Post p where p.topic_id=?";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setParameter(0, topic_id);
+        query.executeUpdate();
+
     }
 }

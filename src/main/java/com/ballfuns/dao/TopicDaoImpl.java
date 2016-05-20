@@ -1,6 +1,6 @@
 package com.ballfuns.dao;
 
-import com.ballfuns.controller.TopicController;
+import com.ballfuns.entity.Post;
 import com.ballfuns.entity.Topic;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -27,7 +27,18 @@ public class TopicDaoImpl implements TopicDao {
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         return query.list();
     }
+    //根据板块id查询该板块的帖子
+    public List<Topic> getAllTopicByBoardId(int board_id) {
+        String hql1="from Topic t  where t.board_id=? ";
+        Query query1=sessionFactory.getCurrentSession().createQuery(hql1);
 
+        // String hql="from Topic t where t.board_id=?";
+        //Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        //“？”第0个参数，board_id
+        query1.setParameter(0, board_id);
+        System.out.println("board id=" + board_id);
+        return query1.list();
+    }
     //根据板块id查询该板块的帖子
     public List<Topic> getTopicByBoardId(int board_id) {
         String hql1="from Topic t  where t.board_id=? and t.sticky_post=0 order by t.last_post desc";
@@ -69,6 +80,7 @@ public class TopicDaoImpl implements TopicDao {
         sessionFactory.getCurrentSession().save(topic);
     }
 
+
     public void addTopiclastTime(Topic topic) {
         Date date=new Date();
         topic.setLast_post(date);
@@ -78,6 +90,7 @@ public class TopicDaoImpl implements TopicDao {
     public void deleteTopicById(int topic_id) {
         Session session=sessionFactory.getCurrentSession();
         Topic topic=(Topic) session.load(Topic.class,new Integer(topic_id));
+
         if(topic!=null){
             session.delete(topic);
             System.out.println("删除成功"+topic);

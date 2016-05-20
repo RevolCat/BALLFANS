@@ -50,4 +50,15 @@ public class BoardDaoImpl implements BoardDao {
         query.setParameter(0,board_id);
         return (Board) query.uniqueResult();
     }
+
+    public void minusTopicNum(Board board) {
+        int topicNum=board.getTopic_num()-1;
+        board.setTopic_num(topicNum);
+        sessionFactory.getCurrentSession().save(board);
+    }
+
+    public void addTopicNumByBoardID(Board board, int topicNum) {
+        board.setTopic_num(topicNum);
+        sessionFactory.getCurrentSession().save(board);
+    }
 }
