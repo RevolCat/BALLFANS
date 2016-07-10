@@ -46,13 +46,14 @@
       <div class="form-group  ">
         <label class="control-label col-md-4 col-lg-4 col-sm-4">账号</label>
         <input type="text"  id="user_account" name="user_account"
-               placeholder="输入你的账号哦，英文或者数字" required onblur="checkAccount()"/>
+        placeholder="输入你的账号哦，英文或者数字" required  onblur="checkAccount()"/>
+
         <span id="spaName" ></span>
       </div>
       <div class="form-group ">
         <label class=" control-label col-md-4 col-lg-4 col-sm-4">用户名</label>
         <input type="text" id="user_name" name="user_name"
-               placeholder="输入你的大名哦" required onblur="checkName()"/>
+               placeholder="输入你的大名哦" required  onblur="checkName()"/><!---->
         <span id="spaName2" ></span>
       </div>
       <div class="form-group ">
@@ -93,5 +94,5 @@
 <script src="../media/JS/jquery.validate.min.js"></script>
 <script src="../media/JS/bootstrap.min.js"></script>
 <script src="../media/JS/index.js"></script>
-<script src="../media/JS/registe.js"></script>
+<script type="text/javascript" src="../media/JS/registe.js"></script>
 <script type="text/javascript" src="../media/JS/jquery.md5.js"></script>

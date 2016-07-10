@@ -81,6 +81,7 @@ function checkspace2(){
 //账号账号检测是否存在
 function checkAccount(){
     var account=$("#user_account").val();
+
     $.ajax({
         type:"POST",
         url:"/user/checkAccount",
@@ -89,7 +90,7 @@ function checkAccount(){
         success:function(data){
             if(data.result==1){
                // alert("the name can be used");
-                $("#spaName").html("<h6 class='p1' style='color:green' >可使用</h6>&nbsp;&nbsp;");
+                $("#spaName").html("<h6 class='p1' style='color:green' ></h6>&nbsp;&nbsp;");
                    // $("#subbutton").removeAttr('disabled');
                 setButtonStatus();
             }
@@ -98,9 +99,6 @@ function checkAccount(){
                 $("#spaName").html("<p class='p2' style='color:red' >账号已存在</p>&nbsp;&nbsp;");
                 $("#subbutton").attr('disabled',true);
             }
-        },
-        error:function(){
-            alert("loading  fail");
         }
     });
 }
@@ -116,7 +114,7 @@ function checkName(){
         success:function(data){
             if(data.result==3){
                  //alert("the name can be used");
-                $("#spaName2").html("<h6 class='p1' style='color:green' >可使用&nbsp;&nbsp;</h6>&nbsp;&nbsp;");
+                $("#spaName2").html("<h6 class='p1' style='color:green' >&nbsp;&nbsp;</h6>&nbsp;&nbsp;");
                    // $("#subbutton").removeAttr('disabled');
                 setButtonStatus();
                       }

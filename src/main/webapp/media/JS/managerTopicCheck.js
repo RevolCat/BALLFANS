@@ -1,6 +1,6 @@
 $(document).ready(function(){
     checkManagerPower();
-    window.setTimeout(checkManagerPower(),3000);
+    //window.setTimeout(checkManagerPower(),3000);
 });
 //板块管理权限
 function checkManagerPower(){

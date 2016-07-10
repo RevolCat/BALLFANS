@@ -85,7 +85,7 @@ public User getByAccount(String user_account){
         User user=(User) session.load(User.class,new Integer(user_id));
         if(user!=null){
             session.delete(user);
-            System.out.println("user delete successfully+++++"+user);
+            //System.out.println("user delete successfully+++++"+user);
         }
     }
 
@@ -95,7 +95,7 @@ public User getByAccount(String user_account){
         if(user!=null){
             user.setLocked(1);
             session.save(user);
-            System.out.println("locked successfully+++");
+         //   System.out.println("locked successfully+++");
         }
     }
 
@@ -105,7 +105,7 @@ public User getByAccount(String user_account){
         if(user!=null){
             user.setLocked(0);
             session.save(user);
-            System.out.println("locked successfully+++");
+           // System.out.println("locked successfully+++");
         }
     }
 

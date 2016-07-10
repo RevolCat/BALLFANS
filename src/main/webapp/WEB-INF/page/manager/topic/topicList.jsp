@@ -35,7 +35,7 @@
   </div>
 </div>
 <div id="pt">
-  <a href="/9" name="homepage"><span class="glyphicon glyphicon-home"></span></a>
+  <a href="/" name="homepage"><span class="glyphicon glyphicon-home"></span></a>
 </div>
 <div id="main">
   <div class="board_title">

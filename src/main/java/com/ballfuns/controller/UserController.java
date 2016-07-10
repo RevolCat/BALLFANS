@@ -48,7 +48,7 @@ public class UserController {
     @RequestMapping("/register")
     public String addUser(User user,HttpServletRequest request){
         userService.addUser(user);
-        System.out.println("user info" + user);
+        //System.out.println("user info" + user);
         String account=request.getParameter("user_account");
         User dbuser=userService.getByAccount(account);
         request.getSession(true).setAttribute("sessionUser",dbuser);
@@ -68,9 +68,10 @@ public class UserController {
         String yonghu=request.getParameter("user_account");
         System.out.println("获取的参数" + yonghu);
         PrintWriter pw=null;
-        System.out.println("获取的对象" + userService);
+        //System.out.println("获取的对象" + userService);
         pw=response.getWriter();
         if(this.userService.getByAccount(yonghu)==null){
+            System.out.println(this.userService.getByAccount(yonghu).toString());
             pw.print("{\"result\":\"1\"}");
         }else {
             pw.print("{\"result\":\"2\"}");
@@ -86,9 +87,9 @@ public class UserController {
     public void checkName(HttpServletRequest request,HttpServletResponse response)
     throws Exception{
         String yonghuming=request.getParameter("user_name");
-        System.out.println("获取的参数"+yonghuming);
+      //  System.out.println("获取的参数"+yonghuming);
         PrintWriter pw=null;
-        System.out.println("获取的对象"+userService);
+        //System.out.println("获取的对象"+userService);
         pw=response.getWriter();
         if(this.userService.getByName(yonghuming)==null){
             //返回的json
@@ -109,8 +110,8 @@ public class UserController {
         String pwd=request.getParameter("password");
         PrintWriter pw=null;
         pw=response.getWriter();
-        System.out.println("获取的参数" + account);
-        System.out.println("获取的参数" + pwd);
+        //System.out.println("获取的参数" + account);
+        //System.out.println("获取的参数" + pwd);
         //用过账号查询用户
         User dbuser=userService.getByAccount(account);
         request.setAttribute("currentUser", dbuser);
@@ -119,11 +120,11 @@ public class UserController {
         }
         else if(!pwd.equals(dbuser.getPassword())){
             pw.print("{\"result\":\"6\"}");
-            System.out.println("查到的密码"+dbuser.getPassword());
+           // System.out.println("查到的密码"+dbuser.getPassword());
         }
         else if(dbuser.getLocked()==1){
             pw.print("{\"result\":\"7\"}");
-            System.out.println("用户锁定了吗？" + dbuser.getLocked());
+            //System.out.println("用户锁定了吗？" + dbuser.getLocked());
         }
         else{
           if(dbuser.getUser_type()==0){
@@ -136,9 +137,9 @@ public class UserController {
               pw.print("{\"result\":\"10\"}");
           }
 
-            //登录积分+1
+
           //  userService.addLoginCredit(dbuser);
-            System.out.println("SUCCESSSSSSSSSSSSSSSSSSSSS             " + dbuser.getCredit());
+            //System.out.println("SUCCESSSSSSSSSSSSSSSSSSSSS             " + dbuser.getCredit());
             request.getSession(true).setAttribute("sessionUser",dbuser);
            request.getSession(true).setAttribute("sessionuserId", dbuser.getUser_id());
             request.getSession(true).setAttribute("sessionuserAccount", dbuser.getUser_account());
@@ -147,9 +148,9 @@ public class UserController {
            request.getSession(true).setAttribute("sessionusertype", dbuser.getUser_type());
             request.getSession(true).setAttribute("sessionuserSex", dbuser.getSex());
 
-            System.out.println("当前     " + dbuser.getUser_name()+"当前account     "+dbuser.getUser_account());
+            //System.out.println("当前     " + dbuser.getUser_name()+"当前account     "+dbuser.getUser_account());
             //获取客户端IP
-            System.out.println(request.getRemoteAddr());
+            //System.out.println(request.getRemoteAddr());
             /**  //获取创建session时间
              HttpSession session=request.getSession();
              System.out.println(  session.getCreationTime());
@@ -167,7 +168,7 @@ public class UserController {
        String currentUserAccount=request.getSession().getAttribute("sessionuserAccount").toString();
         User currentUser=userService.getByAccount(currentUserAccount);
         Integer userCredit=currentUser.getCredit();
-        System.out.println("用户积分为"+userCredit);
+        //System.out.println("用户积分为"+userCredit);
         PrintWriter pw=null;
         pw=response.getWriter();
         pw.print(userCredit);
@@ -188,7 +189,7 @@ public class UserController {
     public String PersonInfo(HttpServletRequest request) {
         String  currentName=request.getSession().getAttribute("sessionusername").toString();
         //userService.getByName(currentName);
-        System.out.println("获取的session's name？" + currentName);
+        //System.out.println("获取的session's name？" + currentName);
         return "/user/personInfo";
     }
 
@@ -210,14 +211,14 @@ public class UserController {
     public  void checkPwd(HttpServletRequest request,HttpServletResponse response) throws Exception{
         String  currentpassword=request.getParameter("currentpassword");
         String currentAccount=request.getSession().getAttribute("sessionuserAccount").toString();
-        System.out.println("获取的参数" + currentpassword);
+        //System.out.println("获取的参数" + currentpassword);
         //System.out.println("获取的参数" + currentAccount);
         PrintWriter pw=null;
         pw=response.getWriter();
         User currentuser=userService.getByAccount(currentAccount);
         if(!currentpassword.equals(currentuser.getPassword())){
             pw.print("{\"result\":\"6\"}");
-            System.out.println("查到的密码"+currentuser.getPassword());
+           // System.out.println("查到的密码"+currentuser.getPassword());
         }
         else {
             pw.print("{\"result\":\"44\"}");
@@ -228,7 +229,7 @@ public class UserController {
     @RequestMapping(value = "/updatepwd",method = RequestMethod.POST)
     public  void  updatePwd(User user,HttpServletRequest request,HttpServletResponse response) throws Exception{
         String currentAccount=request.getSession().getAttribute("sessionuserAccount").toString();
-        System.out.println("当前用户？    "+currentAccount);
+        //System.out.println("当前用户？    "+currentAccount);
         User currentUser=userService.getByAccount(currentAccount);
         String password=request.getParameter("password");
         System.out.println("获取的新密码？  "+password);
@@ -279,7 +280,7 @@ public class UserController {
 
         //??????
             String obj = request.getQueryString();
-        System.out.println("obj:" + obj);
+        //System.out.println("obj:" + obj);
         if (obj!=null) {
             String[] fenge = obj.split("[ = & ]");
             String op = "&";
@@ -297,13 +298,16 @@ public class UserController {
         return "/manager/user/allUsers";
     }
 
-    //删除用户
-    @RequestMapping("/deleteUser")
-    public String deleteUser(int user_id){
-      userService.deleteUserById(user_id);
-        return "redirect:/user/toManager";
-    }
 
+/**
+ *
+ *     //删除用户
+ @RequestMapping("/deleteUser")
+ public String deleteUser(int user_id){
+ userService.deleteUserById(user_id);
+ return "redirect:/user/toManager";
+ }
+ * **/
 
 
     //锁定用户？
@@ -326,12 +330,15 @@ public class UserController {
         Integer currentUserType=(Integer) request.getSession().getAttribute("sessionusertype");
         PrintWriter pw=null;
         pw=response.getWriter();
-        if(currentUserType!=3){
+        if(currentUserType==null){
             //无权限
-            pw.print("{\"result\":\"100\"}");
-            System.out.println("当前种类 =="+currentUserType);
+            pw.print("{\"result\":\"1020\"}");
+         //   System.out.println("当前种类 =="+currentUserType);
         }
-        else{
+        else if(currentUserType!=3){
+            pw.print("{\"result\":\"100\"}");
+        }
+        else {
             pw.print("{\"result\":\"101\"}");
         }
     }
@@ -348,7 +355,7 @@ public class UserController {
         else if(currentUserType==0){
             //无权限
             pw.print("{\"result\":\"200\"}");
-            System.out.println("当前种类 =="+currentUserType);
+            //System.out.println("当前种类 =="+currentUserType);
         }
         else {
             pw.print("{\"result\":\"201\"}");
@@ -364,7 +371,7 @@ public void checkPower(HttpServletRequest request,HttpServletResponse response) 
     if(currentUserType==0){
         //无权限
         pw.print("{\"result\":\"200\"}");
-        System.out.println("当前种类 =="+currentUserType);
+    //    System.out.println("当前种类 =="+currentUserType);
     }
     else if (currentUserType==2){
         pw.print("{\"result\":\"202\"}");

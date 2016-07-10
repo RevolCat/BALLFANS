@@ -20,7 +20,7 @@ function login(){
     var pwd= $.md5($("#password").val());
     //console.log(pwd);
     $.ajax({
-        type:"post",
+        type:"POST",
         url:"/user/login",
         data:{"user_account":account,"password":pwd},
         dataType:"json",

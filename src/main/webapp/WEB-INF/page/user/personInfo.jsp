@@ -121,3 +121,4 @@
 <script src="../media/JS/bootstrap.min.js"></script>
 <script src="../media/JS/personInfo.js"></script>
 <script type="text/javascript" src="../media/JS/jquery.md5.js"></script>
+<script src="../media/JS/index.js"></script>
